@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bruno the Dog</title>
+<title>KUMBADI THE NOOB</title>
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -13,31 +14,37 @@
         padding: 0;
         text-align: center;
     }
+
     header {
         background-color: #0288d1;
         color: white;
         padding: 20px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
+
     h1 {
         margin: 0;
         font-size: 2.5rem;
         letter-spacing: 2px;
     }
+
     p {
-        max-width: 600px;
+        max-width: 700px;
         margin: 20px auto;
         font-size: 1.1rem;
         line-height: 1.6;
         padding: 0 15px;
     }
-    h2 {
+
+    h2, h3 {
         margin-top: 30px;
     }
+
     ul {
         list-style: none;
         padding: 0;
     }
+
     ul li {
         background: #b3e5fc;
         margin: 8px auto;
@@ -46,6 +53,7 @@
         max-width: 300px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     img {
         border-radius: 10px;
         margin: 20px auto;
@@ -54,7 +62,52 @@
         height: auto;
     }
 
-    /* Mobile adjustments */
+    /* Fireworks section */
+    #fireworks-container {
+        position: relative;
+        height: 350px;
+        background: black;
+        margin-top: 40px;
+        overflow: hidden;
+    }
+
+    .congrats-text {
+        position: relative;
+        z-index: 2;
+        color: gold;
+        font-size: 2.2rem;
+        font-weight: bold;
+        padding-top: 20px;
+        text-shadow: 0 0 15px red, 0 0 30px yellow;
+        animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px gold; }
+        to { text-shadow: 0 0 30px red; }
+    }
+
+    #fireworks {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        background: gold;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: orange;
+    }
+
     @media (max-width: 600px) {
         h1 {
             font-size: 2rem;
@@ -68,37 +121,147 @@
     }
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>KUMBADI THE NOOB</h1>
 </header>
 
-<img src="KUMBADI1.jpg" alt="Bruno the dog" width="250" height="150" >
+<img src="KUMBADI1.jpg" alt="Kumbadi image" width="250" height="150">
 
 <p>
-    KUMBADI IS AN INTERNATIONAL NOOB EFOOTBALL PLAYER.HE ONLY WON 4 OUT OF 500 GAMES AGAINST ME.WHEN HE SCORES THE FIRST GOAL HE SWITCHES ON THE FULL DEFENCE BAR AND CLEARS THE BALL.HE TATICS IS TO CLEAR THE BALL AFTER A LEAD.HIS HUGE LOST WAS 20-1.HE DONT KNOW HOW TO DEFEND SO HE ALWAYS TURN ON THE SAMRT ASSIST.EFOOTBALL 2026 IS GONNA BE THE SAME RESULT  FOR HIM.I HOPE HE WILL WIN A MATCH AGIANST ME IN 2026.NOOB KUMBADI
+KUMBADI IS AN INTERNATIONAL NOOB EFOOTBALL PLAYER.  
+HE ONLY WON 4 OUT OF 500 GAMES AGAINST ME.  
+WHEN HE SCORES THE FIRST GOAL, HE SWITCHES TO FULL DEFENSE AND CLEARS THE BALL.  
+HIS TACTIC IS TO PROTECT A LEAD INSTEAD OF PLAYING REAL FOOTBALL.  
+HIS BIGGEST LOSS WAS 20-1.  
+HE DOESN’T KNOW HOW TO DEFEND, SO HE ALWAYS USES SMART ASSIST.  
+EFOOTBALL 2026 WILL BE THE SAME RESULT FOR HIM.  
+I HOPE HE WINS AT LEAST ONE MATCH AGAINST ME IN 2026.
 </p>
 
-<h2>NOOB KUMADI BIGGEST LOSESS:</h2>
+<h2>NOOB KUMBADI BIGGEST LOSSES</h2>
 <ul>
-    <li>20-1</li>
-    <li>17-2</li>
-    <li>16-2</li>
-    <li>15-0</li>
-    <li>12-3</li>
-</ul>
-    <h3>NOOB KUMADI BIGGEST WIN:</h3>
-<ul>
-    <li>3-2</li>
-    
+    <li>20 - 1</li>
+    <li>17 - 2</li>
+    <li>16 - 2</li>
+    <li>15 - 0</li>
+    <li>12 - 3</li>
 </ul>
 
-<img src="KUMBADI.jpg" alt="Bruno the dog"width="250" height="150">
-<h1>THANK YOU!</h1>
+<h3>NOOB KUMBADI BIGGEST WIN</h3>
+<ul>
+    <li>3 - 2</li>
+</ul>
+
+<img src="KUMBADI.jpg" alt="Kumbadi image" width="250" height="150">
+
+<h2>THANK YOU!</h2>
+
+<!-- FIREWORKS SECTION -->
+<div id="fireworks-container">
+    <div class="congrats-text">🎉 CONGRATULATIONS! 🎉</div>
+    <button onclick="playFireworks()">PLAY FIREWORKS 🔊</button>
+    <canvas id="fireworks"></canvas>
+</div>
+
+<audio id="fireworkSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b8a8cda8b.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+const sound = document.getElementById("fireworkSound");
+
+function resizeCanvas() {
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let fireworks = [];
+let playing = false;
+
+function Firework() {
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height;
+    this.targetY = Math.random() * canvas.height / 2;
+    this.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
+    this.exploded = false;
+    this.particles = [];
+}
+
+Firework.prototype.update = function () {
+    if (!this.exploded) {
+        this.y -= 5;
+        if (this.y <= this.targetY) {
+            this.exploded = true;
+            for (let i = 0; i < 40; i++) {
+                this.particles.push({
+                    x: this.x,
+                    y: this.y,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    life: 60
+                });
+            }
+        }
+    }
+};
+
+Firework.prototype.draw = function () {
+    if (!this.exploded) {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, 3, 3);
+    } else {
+        this.particles.forEach(p => {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(p.x, p.y, 2, 2);
+        });
+    }
+};
+
+function animate() {
+    if (!playing) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (Math.random() < 0.07) fireworks.push(new Firework());
+
+    fireworks.forEach((fw, i) => {
+        fw.update();
+        fw.draw();
+
+        if (fw.exploded) {
+            fw.particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life--;
+            });
+            fw.particles = fw.particles.filter(p => p.life > 0);
+            if (fw.particles.length === 0) fireworks.splice(i, 1);
+        }
+    });
+
+    requestAnimationFrame(animate);
+}
+
+function playFireworks() {
+    playing = true;
+    sound.currentTime = 0;
+    sound.play();
+    animate();
+}
+</script>
+
 </body>
 </html>
+
  
+
 
 
 
